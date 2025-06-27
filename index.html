@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tejrakshanet – India’s Shield Against Digital Threats</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -21,32 +21,33 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.8);
-      z-index: 1000;
+      padding: 20px 40px;
+      background-color: rgba(0,0,0,0.85);
+      z-index: 999;
     }
-    header .logo {
-      font-size: 1.5em;
+    .logo {
       font-weight: 800;
+      font-size: 1.5em;
+      color: #fff;
     }
-    header .hamburger {
+    .hamburger {
       font-size: 2em;
       cursor: pointer;
       transition: transform 0.3s;
     }
     .overlay {
       position: fixed;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(0,0,0,0.95);
       top: 0;
       left: -100%;
-      transition: left 0.4s ease;
-      z-index: 999;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.98);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      transition: left 0.4s ease;
+      z-index: 998;
     }
     .overlay.active {
       left: 0;
@@ -62,25 +63,27 @@
       color: silver;
     }
     .hero {
-      height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100vh;
       text-align: center;
       padding: 0 20px;
     }
-    .hero h1 {
-      font-size: 2.5em;
+    .hero-content {
       max-width: 800px;
-      margin-bottom: 20px;
-      line-height: 1.2;
+    }
+    .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 30px;
     }
     .hero button {
       padding: 15px 40px;
-      background: white;
-      color: black;
-      border: none;
       font-size: 1em;
+      border: none;
+      background: #fff;
+      color: #000;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -88,28 +91,36 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px white;
     }
+    @media(min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-around;
+      }
+    }
     section {
       padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
     h2 {
-      font-size: 2em;
-      margin-bottom: 40px;
       text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 40px;
     }
     .clients, .projects, .tools, .feedback {
       display: grid;
       gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
     .client, .project, .tool, .feedback-item {
       background: rgba(255,255,255,0.05);
       padding: 20px;
+      border-radius: 15px;
       text-align: center;
-      border-radius: 10px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .tool:hover {
+    .tool:hover, .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
@@ -125,11 +136,43 @@
       background: rgba(255,255,255,0.1);
       border-radius: 10px;
     }
+    .contact-box {
+      max-width: 600px;
+      margin: auto;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 20px;
+    }
+    .contact-box input, .contact-box textarea, .contact-box select {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .contact-box button {
+      padding: 15px;
+      background: #fff;
+      color: #000;
+      border: none;
+      width: 100%;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-box button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px white;
+    }
     footer {
       text-align: center;
       padding: 40px 20px;
-      background: #111;
       color: #aaa;
+      background: #111;
     }
     .whatsapp {
       position: fixed;
@@ -150,6 +193,7 @@
   </style>
 </head>
 <body>
+
   <header>
     <div class="logo">Tejrakshanet</div>
     <div class="hamburger">☰</div>
@@ -170,7 +214,7 @@
   </div>
 
   <section class="hero">
-    <div>
+    <div class="hero-content">
       <h1>Empowering Your Digital Security with Excellence</h1>
       <button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Explore Us</button>
     </div>
@@ -193,7 +237,6 @@
       <div class="project">Dark Web Monitoring</div>
       <div class="project">Corporate Risk Assessment</div>
       <div class="project">Incident Response</div>
-      <!-- Add more project cards as needed -->
     </div>
   </section>
 
@@ -203,7 +246,6 @@
       <div class="tool">Free Antivirus</div>
       <div class="tool">🔒 Premium Dark Web Monitor</div>
       <div class="tool">🔒 Corporate SIEM Tool</div>
-      <!-- Add more tools as needed -->
     </div>
   </section>
 
@@ -218,37 +260,35 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <form style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <input type="text" placeholder="Name *" required style="padding:15px;border-radius:10px;border:none;">
-      <input type="email" placeholder="Email *" required style="padding:15px;border-radius:10px;border:none;">
-      <input type="tel" placeholder="Phone" style="padding:15px;border-radius:10px;border:none;">
-      <select required style="padding:15px;border-radius:10px;border:none;">
+    <div class="contact-box">
+      <input type="text" placeholder="Name *" required>
+      <input type="email" placeholder="Email *" required>
+      <input type="tel" placeholder="Phone">
+      <select required>
         <option>General Inquiry</option>
         <option>Report Fraud</option>
         <option>Got Hacked</option>
         <option>Join Us</option>
       </select>
-      <input type="text" placeholder="Subject" style="padding:15px;border-radius:10px;border:none;">
-      <textarea placeholder="Message *" required style="padding:15px;border-radius:10px;border:none;min-height:100px;"></textarea>
-      <button type="submit" style="padding:15px;background:white;color:black;border:none;font-weight:600;cursor:pointer;border-radius:10px;">Let's Connect</button>
-    </form>
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Message *" required></textarea>
+      <button type="submit">Let's Connect</button>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2025 Tejrakshanet. All Rights Reserved.
-  </footer>
+  <footer>&copy; 2025 Tejrakshanet. All Rights Reserved.</footer>
 
   <a href="https://wa.me/918779989576?text=Hey%20sir" target="_blank" class="whatsapp">💬</a>
 
   <script>
     const hamburger = document.querySelector('.hamburger');
     const overlay = document.querySelector('.overlay');
-
     hamburger.addEventListener('click', () => {
       hamburger.textContent = hamburger.textContent === '☰' ? '✖' : '☰';
       overlay.classList.toggle('active');
     });
   </script>
+
 </body>
-  </html>
+      </html>
   
