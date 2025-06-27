@@ -3,292 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tejrakshanet – India’s Shield Against Digital Threats</title>
+  <title>Tejrakshanet – Premium Cybersecurity</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: rgba(0,0,0,0.85);
-      z-index: 999;
-    }
-    .logo {
-      font-weight: 800;
-      font-size: 1.5em;
-      color: #fff;
-    }
-    .hamburger {
-      font-size: 2em;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.98);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: left 0.4s ease;
-      z-index: 998;
-    }
-    .overlay.active {
-      left: 0;
-    }
-    .overlay nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 2em;
-      margin: 20px 0;
-      transition: color 0.3s;
-    }
-    .overlay nav a:hover {
-      color: silver;
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .hero-content {
-      max-width: 800px;
-    }
-    .hero h1 {
-      font-size: 2.8em;
-      margin-bottom: 30px;
-    }
-    .hero button {
-      padding: 15px 40px;
-      font-size: 1em;
-      border: none;
-      background: #fff;
-      color: #000;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .hero button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px white;
-    }
-    @media(min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        text-align: left;
-        justify-content: space-around;
-      }
-    }
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    h2 {
-      text-align: center;
-      font-size: 2.2em;
-      margin-bottom: 40px;
-    }
-    .clients, .projects, .tools, .feedback {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    .client, .project, .tool, .feedback-item {
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .tool:hover, .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-    .feedback-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      scroll-snap-type: x mandatory;
-    }
-    .feedback-item {
-      flex: 0 0 300px;
-      scroll-snap-align: start;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-    }
-    .contact-box {
-      max-width: 600px;
-      margin: auto;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.05);
-      padding: 40px;
-      border-radius: 20px;
-    }
-    .contact-box input, .contact-box textarea, .contact-box select {
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-    }
-    .contact-box button {
-      padding: 15px;
-      background: #fff;
-      color: #000;
-      border: none;
-      width: 100%;
-      font-weight: 600;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .contact-box button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px white;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #aaa;
-      background: #111;
-    }
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 1.5em;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
-    }
-    .whatsapp:hover {
-      transform: scale(1.1);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-  <header>
+  <!-- Header & Navigation -->
+  <header class="header">
     <div class="logo">Tejrakshanet</div>
-    <div class="hamburger">☰</div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
   </header>
 
-  <div class="overlay">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#why">Why Us</a>
-      <a href="#report">Report Fraud</a>
-      <a href="#hacked">Got Hacked?</a>
-      <a href="#free">Free</a>
-      <a href="#join">Join Us</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="#blog">Blog</a>
-    </nav>
-  </div>
+  <nav class="overlay-menu" id="overlayMenu">
+    <ul>
+      <li>About</li>
+      <li>Why Us</li>
+      <li>Report Fraud</li>
+      <li>Got Hacked?</li>
+      <li>Free</li>
+      <li>Join Us</li>
+      <li>Projects</li>
+      <li>Contact</li>
+      <li>Blog</li>
+    </ul>
+  </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <h1>Empowering Your Digital Security with Excellence</h1>
-      <button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Explore Us</button>
+      <button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'});">Explore Us</button>
     </div>
   </section>
 
-  <section id="clients">
+  <!-- Clients Section -->
+  <section class="clients">
     <h2>Our Clients</h2>
-    <div class="clients">
-      <div class="client">Priyanshi</div>
-      <div class="client">Aryan</div>
-      <div class="client">Himanshu</div>
-      <div class="client">TechSecure Pvt. Ltd.</div>
+    <div class="client-grid">
+      <div class="client-card">Priyanshi</div>
+      <div class="client-card">Aryan</div>
+      <div class="client-card">Himanshu</div>
+      <div class="client-card">TechSecure Pvt. Ltd.</div>
     </div>
   </section>
 
-  <section id="projects">
+  <!-- Projects Section -->
+  <section class="projects">
     <h2>Projects We Handle</h2>
-    <div class="projects">
-      <div class="project">Personal Firewall Setup</div>
-      <div class="project">Dark Web Monitoring</div>
-      <div class="project">Corporate Risk Assessment</div>
-      <div class="project">Incident Response</div>
+    <div class="projects-category">
+      <h3>For Individuals</h3>
+      <div class="project-grid">
+        <div class="project-card">Personal Firewall Setup</div>
+        <div class="project-card">Dark Web Monitoring</div>
+        <div class="project-card">Secure Mobile Setup</div>
+        <div class="project-card">Anti-Phishing Training</div>
+        <div class="project-card">Private Data Removal</div>
+        <div class="project-card">Privacy Consultation</div>
+      </div>
+    </div>
+    <div class="projects-category">
+      <h3>For Companies</h3>
+      <div class="project-grid">
+        <div class="project-card">Corporate Risk Assessment</div>
+        <div class="project-card">Threat Hunting</div>
+        <div class="project-card">Incident Response</div>
+        <div class="project-card">SIEM Setup</div>
+        <div class="project-card">Compliance Audits</div>
+        <div class="project-card">Employee Cyber Training</div>
+      </div>
     </div>
   </section>
 
-  <section id="tools">
+  <!-- Tools & Software Section -->
+  <section class="tools" id="tools">
     <h2>Tools & Software</h2>
-    <div class="tools">
-      <div class="tool">Free Antivirus</div>
-      <div class="tool">🔒 Premium Dark Web Monitor</div>
-      <div class="tool">🔒 Corporate SIEM Tool</div>
+    <div class="tools-category">
+      <h3>For Individuals</h3>
+      <div class="tool-grid">
+        <div class="tool-box">🔒 Secure VPN</div>
+        <div class="tool-box">Dark Web Scanner</div>
+        <div class="tool-box">Mobile Privacy Kit</div>
+      </div>
+    </div>
+    <div class="tools-category">
+      <h3>For Companies</h3>
+      <div class="tool-grid">
+        <div class="tool-box">🔒 Enterprise Firewall</div>
+        <div class="tool-box">Phishing Simulation</div>
+        <div class="tool-box">Data Leak Detector</div>
+      </div>
     </div>
   </section>
 
-  <section id="feedback">
+  <!-- Feedback Section -->
+  <section class="feedback">
     <h2>What Our Clients Say</h2>
-    <div class="feedback-container">
-      <div class="feedback-item">Priyanshi: “Amazing support!”</div>
-      <div class="feedback-item">Aryan: “Helped me stay safe.”</div>
-      <div class="feedback-item">CompanyX: “Our team is secured.”</div>
+    <div class="feedback-scroll">
+      <div class="feedback-bubble">Priyanshi: “Amazing service!”</div>
+      <div class="feedback-bubble">Athrv: “100% trusted.”</div>
+      <div class="feedback-bubble">Aryan: “Excellent support.”</div>
+      <div class="feedback-bubble">Archana: “Very professional.”</div>
     </div>
+    <div class="dots"></div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-box">
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Let’s Connect</h2>
+    <form class="contact-form">
       <input type="text" placeholder="Name *" required>
       <input type="email" placeholder="Email *" required>
-      <input type="tel" placeholder="Phone">
-      <select required>
+      <input type="tel" placeholder="Phone (Optional)">
+      <select>
+        <option value="">Select Query Type</option>
         <option>General Inquiry</option>
         <option>Report Fraud</option>
         <option>Got Hacked</option>
         <option>Join Us</option>
       </select>
-      <input type="text" placeholder="Subject">
+      <input type="text" placeholder="Subject (Optional)">
       <textarea placeholder="Message *" required></textarea>
-      <button type="submit">Let's Connect</button>
-    </div>
+      <button type="submit">Let’s Connect</button>
+    </form>
   </section>
 
-  <footer>&copy; 2025 Tejrakshanet. All Rights Reserved.</footer>
-
-  <a href="https://wa.me/918779989576?text=Hey%20sir" target="_blank" class="whatsapp">💬</a>
-
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const overlay = document.querySelector('.overlay');
-    hamburger.addEventListener('click', () => {
-      hamburger.textContent = hamburger.textContent === '☰' ? '✖' : '☰';
-      overlay.classList.toggle('active');
-    });
-  </script>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918779989576?text=Hey%20sir" class="whatsapp" target="_blank">&#128172;</a>
 
 </body>
-      </html>
+                                                     </html>
   
